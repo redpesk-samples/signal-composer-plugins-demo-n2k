@@ -1,0 +1,47 @@
+{
+  "$schema": "http://iot.bzh/download/public/schema/json/signal-composer-schema.json",
+  "metadata": {
+		"uid": "signal-composer-binding",
+		"version": "10.0",
+		"api": "signal-composer",
+		"info": "Signal composer API connected to low level services",
+    "require": ["canbus", "redis"]
+  },
+  "plugins":
+    {
+      "uid":"@PROJECT_NAME@-plugin",
+      "info": "@PROJECT_DESCRIPTION@",
+      "libs":"@PROJECT_NAME@.ctlso"
+    },
+  "sources":
+  {
+    "uid":"canbus-binding",
+    "api":"canbus",
+    "info":"Low level binding to handle CAN bus communications",
+    "getSignals":
+      {"action": "api://canbus#subscribe"}
+  },
+  "signals" :
+  [
+    {
+      "uid":"@PROJECT_NAME@-speed",
+      "event": "canbus/messages.Wind.Data.Wind.Speed",
+      "unit": "m/s",
+      "retention": 1,
+      "getSignalsArgs":
+        {"event": "messages.Wind.Data.Wind.Speed"},
+      "onReceived":
+        {"action":"plugin://@PROJECT_NAME@-plugin#pushData"}
+    },
+    {
+      "uid":"@PROJECT_NAME@-angle",
+      "event": "canbus/messages.Wind.Data.Wind.Angle",
+      "unit": "rad",
+      "retention": 1,
+      "getSignalsArgs":
+        {"event": "messages.Wind.Data.Wind.Angle"},
+      "onReceived":
+        {"action":"plugin://@PROJECT_NAME@-plugin#pushData"}
+    }
+  ]
+}
