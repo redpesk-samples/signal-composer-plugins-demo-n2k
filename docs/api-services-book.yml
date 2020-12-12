@@ -1,0 +1,17 @@
+type: books
+books:
+-
+    id: signal-composer-plugins-demo-doc
+    title: Signal Composer plugins Demo
+    description:
+    keywords:
+    author: "IotBzh"
+    chapters:
+    - url: 1-Architecture.md
+      name: Architecture presentation
+    - url: 2-Installation.md
+      name: Installation Guide
+    - url: 3-Configuration.md
+      name: Configuration
+    - url: 4-Usage.md
+      name: Usage Guide
