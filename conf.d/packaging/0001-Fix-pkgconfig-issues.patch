@@ -1,0 +1,39 @@
+From 885bf2aaa65d4d1560faba86acdd1b7d5667b71d Mon Sep 17 00:00:00 2001
+From: Marc-Antoine Riou <marc-antoine.riou@iot.bzh>
+Date: Fri, 11 Dec 2020 15:30:01 +0100
+Subject: [PATCH] Fix pkgconfig-issues
+
+Signed-off-by: Marc-Antoine Riou <marc-antoine.riou@iot.bzh>
+---
+ plugin/CMakeLists.txt | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/plugin/CMakeLists.txt b/plugin/CMakeLists.txt
+index e53bcd1..005b577 100644
+--- a/plugin/CMakeLists.txt
++++ b/plugin/CMakeLists.txt
+@@ -33,15 +33,15 @@ ADD_LIBRARY(
+ TARGET_INCLUDE_DIRECTORIES(
+ 	${TARGET_NAME}
+ 	PUBLIC
+-	${composer_INCLUDEDIR}
+-	${helpers_INCLUDEDIR}
+-	${controller_INCLUDEDIR}
++	${composer_PREFIX}/include
++	${helpers_PREFIX}/include
++	${controller_PREFIX}/include
+ )
+ TARGET_LINK_LIBRARIES(
+ 	${TARGET_NAME} 
+-	signal-composer ${composer_LIBRARIES} -L${composer_LIBDIR}
+-	${helpers_LIBRARIES} -L${helpers_LIBDIR}
+-	${controller_LIBRARIES} -L${controller_LIBDIR}
++	signal-composer ${composer_LDFLAGS}
++	${helpers_LDFLAGS}
++	${controller_LDFLAGS}
+ )
+ SET_TARGET_PROPERTIES(
+ 	${TARGET_NAME}
+-- 
+2.26.2
+
