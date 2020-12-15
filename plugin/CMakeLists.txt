@@ -59,5 +59,7 @@ ADD_CUSTOM_TARGET(
 	COMMAND install ${CMAKE_CURRENT_BINARY_DIR}/${TARGET_NAME}${PLUGIN_SUFFIX} \${DESTDIR}/${composer_LIBDIR}/plugins
 	COMMAND install -d \${DESTDIR}${composer_LIBDIR}/../etc
 	COMMAND install ${CMAKE_CURRENT_BINARY_DIR}/${TARGET_NAME}.json \${DESTDIR}/${composer_LIBDIR}/../etc
+	COMMAND install -d \${DESTDIR}${composer_LIBDIR}/../var
+	COMMAND install ${CMAKE_SOURCE_DIR}${PROJECT_VAR_DIR}/WS310.log \${DESTDIR}/${composer_LIBDIR}/../var
 	COMMAND
 )

@@ -38,6 +38,7 @@ set(DEMO_SENSOR "WIRED_WIND_WS310")
 # relative to the root project directory
 set(PROJECT_CMAKE_CONF_DIR "conf.d")
 set(PROJECT_JSON_CONF_DIR "/${PROJECT_CMAKE_CONF_DIR}/etc")
+set(PROJECT_VAR_DIR "/${PROJECT_CMAKE_CONF_DIR}/var")
 
 # Where are stored your external libraries for your project. This is 3rd party library that you don't maintain
 # but used and must be built and linked.
