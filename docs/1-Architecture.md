@@ -4,12 +4,12 @@
 
 The signal-composer-plugins-demo-n2k takes place in a demo context which puts in relation:
 - sensor which emits can frames
-- [canbus-binding](http://redpesk-doc-internal.lorient.iot/docs/en/master/apis-services/canbus/1-Architecture.html)
-- [signal-composer-binding](http://redpesk-doc-internal.lorient.iot/docs/en/master/apis-services/signal-composer/part-1/1-Architecture)
-- [redis-tsdb-binding](http://redpesk-doc-internal.lorient.iot/docs/en/master/apis-services/redis-tsdb-binding/part-1/1-Architecture)
-- [cloud-publication-binding](http://redpesk-doc-internal.lorient.iot/docs/en/master/apis-services/redis-tsdb-binding/part-1/1-Architecture)
+- [canbus-binding](../redpesk-core/canbus/1-Architecture.html)
+- [signal-composer-binding](../redpesk-core/signal-composer/part-1/1-Architecture.html)
+- [redis-tsdb-binding](../redpesk-core/redis/1-Architecture.html)
+- [cloud-publication-binding](../redpesk-core/cloud-pub/1-Architecture.html)
 
-The information you are about to read down below are specifics to the demo that takes place late 2020 for the redpesk® showcase, but keep in mind that involved blocks are not frozen and can be modeled to match your expectations (sensor, standard CAN, data processing, etc...)
+The information you are about to read down below are specifics to the demo that takes place late 2020 for the redpesk showcase, but keep in mind that involved blocks are not frozen and can be modeled to match your expectations (sensor, standard CAN, data processing, etc...)
 
 ## Prerequesites
 
@@ -21,7 +21,7 @@ The demo-n2k is a signal-composer plugins that is expecting the canbus-binding t
 
 ![Plugin architecture](./img/plugin_architecture.png)
 
-You can find in the `config.cmake` file a bunch of crucial variable for the plugin identity such as:
+You can find in the [config.cmake](https://github.com/redpesk-samples/signal-composer-plugins-demo-n2k/blob/master/conf.d/cmake/config.cmake) file, a bunch of crucial variable for the plugin identity such as:
 - The name of your plugin: @PROJECT_NAME@
 - The name of the sensor you want the plugin to process its data: @DEMO_SENSOR@
 

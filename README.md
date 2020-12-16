@@ -6,10 +6,10 @@ The main purpose of this project is to provide a signal-composer plugin, built a
 
 This project is a part of a demo which implies:
 - sensor which emits can frames
-- [canbus-binding](http://redpesk-doc-internal.lorient.iot/docs/en/master/apis-services/canbus/1-Architecture.html)
-- [signal-composer-binding](http://redpesk-doc-internal.lorient.iot/docs/en/master/apis-services/signal-composer/part-1/1-Architecture)
-- [redis-tsdb-binding](http://redpesk-doc-internal.lorient.iot/docs/en/master/apis-services/redis-tsdb-binding/part-1/1-Architecture)
-- [cloud-publication-binding](http://redpesk-doc-internal.lorient.iot/docs/en/master/apis-services/redis-tsdb-binding/part-1/1-Architecture)
+- [canbus-binding](https://docs.redpesk.bzh/docs/en/master/redpesk-core/canbus/1-Architecture.html)
+- [signal-composer-binding](https://docs.redpesk.bzh/docs/en/master/redpesk-core/signal-composer/part-1/1-Architecture.html)
+- [redis-tsdb-binding](http://docs.redpesk.bzh/docs/en/master/redpesk-core/redis/1-Architecture.html)
+- [cloud-publication-binding](https://docs.redpesk.bzh/docs/en/master/redpesk-core/cloud-pub/1-Architecture.html)
 
 The full documentation can be found under the [docs](./docs/) directory.
 

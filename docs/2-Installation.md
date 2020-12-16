@@ -5,7 +5,7 @@ Do not forget that the environment where you want to run the plugin must have th
 
 ## Using package manager
 
-If you aren't planing to build it from source, add the redpesk® repository
+If you aren't planing to build it from source, add the redpesk repository
 to your package manager.  
 Here is the url for Redpesk and Fedora:
 `download.redpesk.bzh`  
@@ -13,7 +13,7 @@ Then, to install the package and all its dependencies, install the package **sig
 
 ## Building from source
 
-We advise you to use the [local builder](../getting_started/local_builder/docs/1_installation.html) for building the plugin source. The local builder comes with everything setup to build redpesk® projects.
+We advise you to use the [local builder](../getting_started/local_builder/docs/1_installation.html) for building the plugin source. The local builder comes with everything setup to build redpesk projects.
 
 ### Tools
 

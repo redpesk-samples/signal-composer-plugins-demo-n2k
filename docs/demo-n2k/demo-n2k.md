@@ -1,6 +1,6 @@
 # redpesk@marine demo: from sea to cloud
 
-The redpesk@marine demo is a showcase of how developing in a redpesk® environment can be convenient for continuous integration purpose.
+The redpesk@marine demo is a showcase of how developing in a redpesk environment can be convenient for continuous integration purpose.
 
 ## Introduction
 The goal of the demo is, starting from a Wired Wind, to store and access its data, in order to keep an eye on the wind evolution while navigating. 
@@ -9,7 +9,7 @@ This demo belongs to a part of what had been presented in the CES2020 show by Io
 
 ![CES2020](./../img/CES-2020-FHD.png) 
 
-This tutorial will highlight several crucial points in the day to day life of a redpesk® developer, so don't wait any longer and let's start the trip !
+This tutorial will highlight several crucial points in the day to day life of a redpesk developer, so don't wait any longer and let's start the trip !
 
 ![let's start the ride](./../img/ride.png){:: style="margin:auto; display:flex; width:50%;"}
 
@@ -31,7 +31,7 @@ To do so, we will need several redpesk related software components:
 - [canbus-binding](../../redpesk-core/canbus/1-Architecture.html): CAN frame collection, translation and emission.
 - [signal-composer-binding](../../redpesk-core/signal-composer/part-1/1-Architecture.html): data processing
 - [redis-tsdb-binding](../../redpesk-core/redis/1-Architecture.html): data storage in a Time Series Database
-- [cloud-publication-binding](../../redpesk-core/cloud-pub/1-Architecture.html): @VINCENT PLEASE FILL@
+- [cloud-publication-binding](../../redpesk-core/cloud-pub/1-Architecture.html): Selective publication of target data to the cloud
 
 Because the WS310 emits CAN frames which follow NMEA2000 standard, the canbus plugin needs to load the **n2k-basic-signal** plugin in order to achieve the frame translation.
 
@@ -47,8 +47,9 @@ The interesting part, as a developer sight, begins here. Let's say we want to re
 
 The signal-composer-binding could do the tricks for us since it is a service that can act on input signals by loading plugins that perform actions on them.
 
-Let's say you wrote this plugin and pushed its source code just [there](http://link/to/the/repo/github/demo-n2k).
-*Documentation of the [signal-composer-plugins-demo-n2k](../../redpesk-core/1-Architecture.html)*
+Let's say you wrote this plugin and pushed its source code just [there](https://github.com/redpesk-samples/signal-composer-plugins-demo-n2k).
+
+[Documentation](../../redpesk-core/1-Architecture.html) of the signal-composer-plugins-demo-n2k
 
 Let's get the new preview of the architecture project !
 
@@ -120,7 +121,7 @@ It is time to create the demo-n2k plugin package.
 - Where your sources are located
 - Where your specfile is located
 
-Because the plugin is used in a demo, the redpesk Team provides you its [specfile](http://link/to/conf.d/packaging/specfile.spec).  
+Because the plugin is used in a demo, the redpesk Team provides you its [specfile](https://github.com/redpesk-samples/signal-composer-plugins-demo-n2k/blob/master/conf.d/packaging/signal-composer-plugins-demo-n2k.spec).  
 Do not hesitate to use it as a template for your future experiments within the redpesk environment.
 
 ⚠️⚠️ The `package name` application must match the `Name` value in your specfile. ⚠️⚠️

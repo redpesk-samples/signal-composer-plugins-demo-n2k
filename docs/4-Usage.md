@@ -1,6 +1,6 @@
 # redpesk® demo-n2k plugin usage
 
-This part will introduce you how you can start the demo that takes place late 2020 for the redpesk® showcase, either with the pluging coming from your package manager, or the demo-n2k plugin you just build from source.
+This part will introduce you how you can start the demo that takes place late 2020 for the redpesk showcase, either with the pluging coming from your package manager, or the demo-n2k plugin you just build from source.
 
 ## Prerequesites
 
@@ -54,7 +54,7 @@ Don't forget that you need the can_j1939 kernel module loaded in your execution 
 
 ## Execution
 
-Add the redpesk® repository to your package manager.  
+Add the redpesk repository to your package manager.  
 Here is the url for Redpesk and Fedora:
 `download.redpesk.bzh`  
 Then install the demo-n2k plugin:
