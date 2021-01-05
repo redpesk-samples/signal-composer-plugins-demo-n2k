@@ -174,9 +174,6 @@ This demo is also the opportunity to present you a nice feature coming along wit
 
 We, as developers, know that sometimes mistakes can occur. Unfortunately we won't help you fix your code, but at least we can let you patch your source and build your package in the blink of an eye.
 
-For example, the demo-n2k plugin's specfile expects your application to have a patch named [0001-Fix-pkgconfig-issues.patch](https://github.com/redpesk-samples/signal-composer-plugins-demo-n2k/blob/master/conf.d/packaging/0001-Fix-pkgconfig-issues.patch).
-Do not forget to add it into your application before the build.
-
 #### UI
 
 ![build demo-n2k](./../mov/patch_source.gif)
