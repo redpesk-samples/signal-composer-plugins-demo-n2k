@@ -1,6 +1,6 @@
 %define debug_package %{nil}
 Name:           signal-composer-plugins-demo-n2k
-Version:        1.0.1
+Version:        1.0.2
 Release:        0%{?dist}
 Summary:        A signal composer plugin meant to collect, process and push NMEA200 data coming from the low-can binding, to a redis TSDB
 Group:          Development/Libraries/C and C++

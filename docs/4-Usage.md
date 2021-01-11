@@ -134,4 +134,4 @@ devel@redpesk: ~ redis-cli -c TS.MGET FILTER class=WIRED_WIND_WS310
 Thanks to [Binder Devtool](../ci-cd/monitoring.html), you can have a user friendly control of what is going on in your plugin.
 You have access to basic signal-composer utilities such as the signals list, the config of your signal, and for the demo-n2k plugin, the data coming from the canbus-binding.
 
-![afb-ui-dev-tool](./mov/ui_dev_tool.gif)
+![afb-ui-dev-tool](./mov/ui_dev_tool.webm)

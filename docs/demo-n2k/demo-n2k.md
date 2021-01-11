@@ -68,7 +68,7 @@ Now that the source code is upstream, we can consider building it within the red
 
 In order to build the demo-n2k plugin in redpesk, you have two possibilities:
 
-- Use the web user interface, such as the one you can find there: [community](http://community-app.redpesk.bzh/) one.
+- Use the web user interface, such as the [community](http://community-app.redpesk.bzh/) one.
 - Use the [rp-cli](../../getting_started/rp_cli/0_introduction.html) tool to build your project directly from the command line.
 
 This section will present, for each steps, both of them.
@@ -160,33 +160,12 @@ The redpesk@marine application has just been created and is ready to be built. L
 
 #### UI
 
-![build demo-n2k](./../mov/build_UI.gif)
+![build demo-n2k](./../mov/build_UI.webm)
 
 #### rp-cli
 
 ```bash
 rp-cli applications build signal-composer-plugins-demo-n2k
-```
-
-### Patch
-
-This demo is also the opportunity to present you a nice feature coming along with redpesk.
-
-We, as developers, know that sometimes mistakes can occur. Unfortunately we won't help you fix your code, but at least we can let you patch your source and build your package in the blink of an eye.
-
-#### UI
-
-![build demo-n2k](./../mov/patch_source.gif)
-
-#### rp-cli
-
-```bash
-# Modification of specfile to add the "Patch:   0002-A-random-fix.patch" (cf. GIF here above)
-vim ./signal-composer-plugins-demo-n2k.spec
-# Send the new spec file
-rp-cli applications upload signal-composer-plugins-demo-n2k --file-path ./signal-composer-plugins-demo-n2k.spec
-# Send the patch
-rp-cli applications upload signal-composer-plugins-demo-n2k --file-path ./0002-A-random-fix.patch
 ```
 
 ## Deployment
@@ -195,7 +174,7 @@ rp-cli applications upload signal-composer-plugins-demo-n2k --file-path ./0002-A
 
 Once your build is successful and closed, everything is set to deploy the demo on board.
 
-If it is not already done, [boot](../../getting_started/quickstart/03-boot-images.html) your board with the latest redpesk image. Then do not forget to add your project package repository list as mentioned in the [package manager section](#package-manager) of this tutorial
+If it is not already done, [boot](../../getting_started/quickstart/03-boot-images.html) your board with the latest redpesk image. Then do not forget to add your project package repository list as mentioned in the [package manager section](#package-manager) of this tutorial.
 
 Refresh your package manager metadata:
 
