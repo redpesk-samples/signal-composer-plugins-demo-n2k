@@ -4,10 +4,10 @@
 
 The signal-composer-plugins-demo-n2k takes place in a demo context which puts in relation:
 - sensor which emits can frames
-- [canbus-binding](../redpesk-core/canbus/1-Architecture.html)
-- [signal-composer-binding](../redpesk-core/signal-composer/part-1/1-Architecture.html)
-- [redis-tsdb-binding](../redpesk-core/redis/1-Architecture.html)
-- [cloud-publication-binding](../redpesk-core/cloud-pub/1-Architecture.html)
+- [canbus-binding]({% chapter_link canbus-binding.architecture-presentation %})
+- [signal-composer-binding]({% chapter_link agl-service-signal-composer.architecture-presentation %})
+- [redis-tsdb-binding]({% chapter_link redis-tsdb-binding-doc.architecture-presentation %})
+- [cloud-publication-binding]({% chapter_link cloud-publication-binding-doc.architecture-presentation %})
 
 The information you are about to read down below are specifics to the demo that takes place late 2020 for the redpesk showcase, but keep in mind that involved blocks are not frozen and can be modeled to match your expectations (sensor, standard CAN, data processing, etc...)
 

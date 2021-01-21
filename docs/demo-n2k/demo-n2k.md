@@ -33,10 +33,10 @@ We want the WS310 data to be collected and stored in the cloud.
 
 To do so, we will need several redpesk related software components:
 
-- [canbus-binding](../../redpesk-core/canbus/1-Architecture.html): CAN frame collection, translation and emission.
-- [signal-composer-binding](../../redpesk-core/signal-composer/part-1/1-Architecture.html): data processing
-- [redis-tsdb-binding](../../redpesk-core/redis/1-Architecture.html): data storage in a Time Series Database
-- [cloud-publication-binding](../../redpesk-core/cloud-pub/1-Architecture.html): Selective publication of target data to the cloud
+- [canbus-binding]({% chapter_link canbus-binding.architecture-presentation %}): CAN frame collection, translation and emission.
+- [signal-composer-binding]({% chapter_link agl-service-signal-composer.architecture-presentation %}): data processing
+- [redis-tsdb-binding]({% chapter_link redis-tsdb-binding-doc.architecture-presentation %}): data storage in a Time Series Database
+- [cloud-publication-binding]({% chapter_link cloud-publication-binding-doc.architecture-presentation %}): Selective publication of target data to the cloud
 
 Because the WS310 emits CAN frames which follow NMEA2000 standard, the canbus plugin needs to load the **n2k-basic-signal** plugin in order to achieve the frame translation.
 
@@ -56,7 +56,7 @@ The signal-composer-binding could do the tricks for us since it is a service tha
 
 Let's say you wrote this plugin and pushed its source code just [there](https://github.com/redpesk-samples/signal-composer-plugins-demo-n2k).
 
-[Documentation](../../redpesk-core/1-Architecture.html) of the signal-composer-plugins-demo-n2k
+[Documentation]({% chapter_link signal-composer-plugins-demo-doc.architecture-presentation %}) of the signal-composer-plugins-demo-n2k
 
 Let's get the new preview of the architecture project !
 
@@ -69,7 +69,7 @@ Now that the source code is upstream, we can consider building it within the red
 In order to build the demo-n2k plugin in redpesk, you have two possibilities:
 
 - Use the web user interface, such as the [community](http://community-app.redpesk.bzh/) one.
-- Use the [rp-cli](../../getting_started/rp_cli/0_introduction.html) tool to build your project directly from the command line.
+- Use the [rp-cli]({% chapter_link rp-cli-doc.introduction %}) tool to build your project directly from the command line.
 
 This section will present, for each steps, both of them.
 
@@ -174,7 +174,7 @@ rp-cli applications build signal-composer-plugins-demo-n2k
 
 Once your build is successful and closed, everything is set to deploy the demo on board.
 
-If it is not already done, [boot](../../getting_started/quickstart/03-boot-images.html) your board with the latest redpesk image. Then do not forget to add your project package repository list as mentioned in the [package manager section](#package-manager) of this tutorial.
+If it is not already done, [boot]({% chapter_link quickstart.boot-a-redpesk-image %}) your board with the latest redpesk image. Then do not forget to add your project package repository list as mentioned in the [package manager section](#package-manager) of this tutorial.
 
 Refresh your package manager metadata:
 
@@ -266,7 +266,7 @@ afm-util start signal-composer-binding
 
 ### Results
 
-There we go, the demo is deployed. To ensure everything is going well, you can see your stored data by using the redis-cli tool. Do not hesitate to read the [demo-n2k](../../redpesk-core/1-Architecture.html) documentation to get in touch with the data structure given to the redis-tsdb-binding.
+There we go, the demo is deployed. To ensure everything is going well, you can see your stored data by using the redis-cli tool. Do not hesitate to read the [demo-n2k]({% chapter_link signal-composer-plugins-demo-doc.architecture-presentation %}) documentation to get in touch with the data structure given to the redis-tsdb-binding.
 
 See the latest stored value:
 

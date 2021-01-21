@@ -5,7 +5,7 @@ Do not forget that the environment where you want to run the plugin must have th
 
 ## Using package manager
 
-If you aren't planing to build it from source on your host, add the redpesk [repository](../developer-guides/host-configuration/docs/1-Setup-your-build-host.html)
+If you aren't planing to build it from source on your host, add the redpesk [repository]({% chapter_link host-configuration-doc.building-and-running-your-service-natively %})
 to your package manager.
 
 
@@ -13,7 +13,7 @@ Then, to install the package and all its dependencies, install the package **sig
 
 ## Building from source
 
-We advise you to use the [local builder](../getting_started/local_builder/docs/1_installation.html) for building the plugin source. The local builder comes with everything setup to build redpesk projects.
+We advise you to use the [local builder]({% chapter_link local-builder-doc.installation %}) for building the plugin source. The local builder comes with everything setup to build redpesk projects.
 
 ### Tools
 
