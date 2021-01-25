@@ -1,4 +1,3 @@
-%define debug_package %{nil}
 Name:           signal-composer-plugins-demo-n2k
 Version:        1.0.2
 Release:        0%{?dist}
