@@ -1,4 +1,4 @@
-# redpesk® demo-n2k plugin installation
+# redpesk demo-n2k plugin installation
 
 This part is only useful if you plan to build and install the package from source.  
 Do not forget that the environment where you want to run the plugin must have the **can_j1939** kernel modules loaded.

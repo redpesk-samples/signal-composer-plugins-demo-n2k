@@ -1,4 +1,4 @@
-# redpesk® demo-n2k plugin architecture
+# redpesk demo-n2k plugin architecture
 
 ## Introduction
 

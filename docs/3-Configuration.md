@@ -1,4 +1,4 @@
-# redpesk® demo-n2k plugin configuration
+# redpesk demo-n2k plugin configuration
 
 You can find down below the configuration obtained after compiling the demo-n2k plugin and a brief descritpion of several concept introduced.
 
