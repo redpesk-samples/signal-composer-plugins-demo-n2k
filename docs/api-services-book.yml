@@ -2,7 +2,7 @@ type: books
 books:
 -
     id: signal-composer-plugins-demo-doc
-    title: Signal Composer plugins Demo
+    title: Signal composer plugins demo
     description:
     keywords:
     author: "IotBzh"
@@ -10,8 +10,8 @@ books:
     - url: 1-Architecture.md
       name: Architecture presentation
     - url: 2-Installation.md
-      name: Installation Guide
+      name: Installation guide
     - url: 3-Configuration.md
       name: Configuration
     - url: 4-Usage.md
-      name: Usage Guide
+      name: Usage guide

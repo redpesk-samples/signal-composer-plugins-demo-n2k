@@ -2,7 +2,7 @@ type: books
 books:
 -
     id: demo-n2k-doc
-    title: Sample Marine Application
+    title: Sample marine application
     description:
     keywords:
     author: "IotBzh"
