@@ -86,7 +86,7 @@ Click on `new project` and let's have a look to the project configuration
 #### rp-cli
 
 ```bash
-rp-cli projects add -n "redpesk@marine project" -d "The official redpesk@marine project" --mandatory-distro redpesk-devel-33 --mandatory-arch aarch64 --optional-arch x86_64
+rp-cli projects add -n "redpesk@marine project" -d "The official redpesk@marine project" --mandatory-distro redpesk-lts-arz-1.0-update --mandatory-arch aarch64 --optional-arch x86_64
 ```
 
 Notice here that we put the aarch64 as a mandatory project architecture since we use a Raspberry Pi 4 as a target.
@@ -105,22 +105,16 @@ Just follow the instruction in the `Add repository on target` section and copy/p
 
 ```bash
 $ rp-cli projects get redpesk-marine-project --repository
-ID                                       Slug                    Name
-d6a4b0ca-6ae6-41a3-a373-08d904d9761e     redpesk-marine-project  redpesk@marine project
+ID                                       Slug                    Name                    Version         Type
+a3e92fd4-ed1e-41a6-a7ec-209cbc98918f     redpesk-marine-project  redpesk@marine project  [Not set]       standard
 
-Repository file:
-----------------
+Repository URL:  http://community-app.redpesk.bzh/kbuild/repos/redpesk-marine-project_a3e92fd4--redpesk-lts-arz-1.0-update-build/latest/?token=434b3f6a-4e1b-4756-95d9-31137eb9b2ab_cba6c697-6881-4865-b914-31b8e2bfdb86
 
-cat << EOF > /etc/yum.repos.d/redpesk-marine-project.repo
-[redpesk-marine-project]
-name=redpesk-marine-project
-baseurl=http://lorient-app-test01.lorient.iot/kbuild/repos/redpesk-marine-project_d6a4b0ca--redpesk-devel-33-build/latest/\$basearch
-enabled=1
-repo_gpgcheck=0
-type=rpm
-gpgcheck=0
-skip_if_unavailable=False
-EOF
+Add repository on target:
+-------------------------
+
+curl -fsSL 'http://community-app.redpesk.bzh/kbuild/repos/redpesk-marine-project_a3e92fd4--redpesk-lts-arz-1.0-update-build/latest/install_repo.sh?token=434b3f6a-4e1b-4756-95d9-31137eb9b2ab_cba6c697-6881-4865-b914-31b8e2bfdb86' | bash
+
 ```
 
 ### Application creation
@@ -151,7 +145,7 @@ Click on `new app` and let's have a look on the application configuration
 #### rp-cli
 
 ```bash
-rp-cli applications add -n signal-composer-plugins-demo-n2k --pkg-name signal-composer-plugins-demo-n2k -a demo-n2k -d "A plugin for the signal-composer used for the redpesk@marine demo" --source-url https://github.com/redpesk-samples/signal-composer-plugins-demo-n2k --ext-specfile-url https://raw.githubusercontent.com/redpesk-samples/signal-composer-plugins-demo-n2k/master/conf.d/packaging/signal-composer-plugins-demo-n2k.spec -p redpesk-marine-project
+rp-cli applications add -n signal-composer-plugins-demo-n2k --pkg-name signal-composer-plugins-demo-n2k -a demo-n2k -d "A plugin for the signal-composer used for the redpesk@marine demo" --source-url https://github.com/redpesk-samples/signal-composer-plugins-demo-n2k --specfile-ext-url https://raw.githubusercontent.com/redpesk-samples/signal-composer-plugins-demo-n2k/master/conf.d/packaging/signal-composer-plugins-demo-n2k.spec -p redpesk-marine-project
 ```
 
 ### Build
