@@ -188,7 +188,7 @@ After that, you need to set up your CAN connection in order to get access to the
 Once plugged in you should see that a CAN interface has been created.
 
 ```bash
-devel@redpesk: ~ ip -br a
+ip -br a
 lo               UNKNOWN        127.0.0.1/8 ::1/128
 can0             DOWN
 ```
@@ -203,20 +203,26 @@ ip link set up can0
 Then you should see the following state for your interface:
 
 ```bash
-devel@redpesk: ~ ip -br a
+ip -br a
 lo               UNKNOWN        127.0.0.1/8 ::1/128
 can0             UP
 ```
 
-⚠️⚠️ If you do not have a sensor ⚠️⚠️
-Don't worry, the demo-n2k plugin install a CAN frame log file. It should be located in: `/var/local/lib/afm/applications/signal-composer/var/WS310.log`.
-Then install can-utils:
+#### Virtual CAN interface
+
+⚠️⚠️ Only if you do not have a "real" sensor ⚠️⚠️
+
+Don't worry, the demo-n2k plugin install a CAN frame log file. 
+
+It should be located in: `/var/local/lib/afm/applications/signal-composer-binding/var/WS310.log`.
+
+Then install can-utils (that provides among others canplayer):
 
 ```bash
 dnf install can-utils
 ```
 
-Set up the CAN interface:
+Set up the virtual CAN interface:
 
 ```bash
 ip link add dev can0 type vcan
@@ -226,13 +232,20 @@ ip link set up can0
 Play the logfile:
 
 ```bash
+export PATH_TO_THE_WS310_LOGS=/var/local/lib/afm/applications/signal-composer-binding/var/WS310.log
 canplayer -li -I ${PATH_TO_THE_WS310_LOGS} can0=can0
 ```
 
-Then you can check your sensor is correctly working by reading the frame it sends thanks to the **can-utils** package.
+#### Check can data reception
+
+You can check your sensor is correctly working by reading the frame it sends thanks to the **can-utils** package.
 
 ```bash
-devel@redpesk: ~ candump can0
+# install can-utils that provides among others candump
+dnf install can-utils
+
+# listen and dump data on can0 interface
+candump can0
 can0  09FD0202   [8]  86 D3 00 F2 C3 FA FF FF
 can0  09FD0202   [8]  87 CF 00 ED CD FA FF FF
 can0  09FD0202   [8]  88 CB 00 6C D7 FA FF FF
@@ -265,7 +278,7 @@ There we go, the demo is deployed. To ensure everything is going well, you can s
 See the latest stored value:
 
 ```bash
-devel@redpesk: ~ redis-cli -c TS.MGET FILTER class=WIRED_WIND_WS310
+redis-cli -c TS.MGET FILTER class=WIRED_WIND_WS310
 1) 1) "WIRED_WIND_WS310.angle.unit"
    2) (empty list or set)
    3) 1) (integer) 1607986214
@@ -287,7 +300,7 @@ devel@redpesk: ~ redis-cli -c TS.MGET FILTER class=WIRED_WIND_WS310
 See the whole content of the class `WIRED_WIND_WS310` in database:
 
 ```bash
-devel@redpesk: ~ redis-cli -c TS.MRANGE - + FILTER class=WIRED_WIND_WS310
+redis-cli -c TS.MRANGE - + FILTER class=WIRED_WIND_WS310
 WIRED_WIND_WS310.angle.unit
 
 1608025189
