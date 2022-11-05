@@ -23,7 +23,7 @@ To get further details about the redpesk@marine demo, let's list the hardware co
 - A board
   - Raspberry Pi 4
   - Architecture: aarch64
-  - OS: redpesk33
+  - OS: redpesk arz
 - A Wired Wind Sensor WS310:
   - Collects wind speed and wind angle
   - Use NMEA2000 standard to communicate
@@ -86,14 +86,19 @@ Click on `new project` and let's have a look to the project configuration
 #### rp-cli
 
 ```bash
-rp-cli projects add -n "redpesk@marine project" -d "The official redpesk@marine project" --mandatory-distro redpesk-lts-arz-1.0-update --mandatory-arch aarch64 --optional-arch x86_64
+$ rp-cli projects add \
+    --name "redpesk@marine project" \
+    --description "The official redpesk@marine project" \
+    --mandatory-distro redpesk-lts-{{ site.redpesk-os.update }} \
+    --mandatory-arch aarch64 \
+    --optional-arch x86_64
 ```
 
 Notice here that we put the aarch64 as a mandatory project architecture since we use a Raspberry Pi 4 as a target.
 
 ### Package manager
 
-Let's assume the Raspberry Pi4 is already running the redpesk33 images, there we have to make available any packages coming from the redpesk@marine project within the board.
+Let's assume the Raspberry Pi4 is already running the redpesk images, there we have to make available any packages coming from the redpesk@marine project within the board.
 
 #### UI
 
@@ -105,15 +110,15 @@ Just follow the instruction in the `Add repository on target` section and copy/p
 
 ```bash
 $ rp-cli projects get redpesk-marine-project --repository
-ID                                       Slug                    Name                    Version         Type
-a3e92fd4-ed1e-41a6-a7ec-209cbc98918f     redpesk-marine-project  redpesk@marine project  [Not set]       standard
+ID                                       Slug                            Name                    Version         Type
+74dbb596-37b6-4048-8651-2c42e0930f83     redpesk-marine-project        redpesk@marine project  [Not set]       standard
 
-Repository URL:  http://community-app.redpesk.bzh/kbuild/repos/redpesk-marine-project_a3e92fd4--redpesk-lts-arz-1.0-update-build/latest/?token=434b3f6a-4e1b-4756-95d9-31137eb9b2ab_cba6c697-6881-4865-b914-31b8e2bfdb86
+Repository URL:  https://community-app.redpesk.bzh/kbuild/repos/redpesk-marine-project-1_74dbb596--redpesk-lts-{{ site.redpesk-os.update }}-build/latest/?token=61c7d8e2-fe9d-408e-87de-fca28816fe90_a5700e32-afa3-4a15-b5d7-90ff5d0810cb
 
 Add repository on target:
 -------------------------
 
-curl -fsSL 'http://community-app.redpesk.bzh/kbuild/repos/redpesk-marine-project_a3e92fd4--redpesk-lts-arz-1.0-update-build/latest/install_repo.sh?token=434b3f6a-4e1b-4756-95d9-31137eb9b2ab_cba6c697-6881-4865-b914-31b8e2bfdb86' | bash
+curl -fsSL 'https://community-app.redpesk.bzh/kbuild/repos/redpesk-marine-project_74dbb595--redpesk-lts-{{ site.redpesk-os.update }}-build/latest/install_repo.sh?token=61c7d8e2-fe9d-408e-87de-fca28816fe90_a5700e32-afa3-4a15-b5d7-90ff5d0810cb' | bash
 
 ```
 
@@ -126,13 +131,8 @@ It is time to create the demo-n2k plugin package.
 - Where your specfile is located
 
 Because the plugin is used in a demo, the redpesk Team provides you its [specfile](https://github.com/redpesk-samples/signal-composer-plugins-demo-n2k/blob/master/conf.d/packaging/signal-composer-plugins-demo-n2k.spec).
+
 Do not hesitate to use it as a template for your future experiments within the redpesk environment.
-
-When submitting an external specfile URL in your application settings, you must indicate its **raw** URL:
-
-`https://raw.githubusercontent.com/redpesk-samples/signal-composer-plugins-demo-n2k/master/conf.d/packaging/signal-composer-plugins-demo-n2k.spec`
-
-> Note: this raw URL can be obtain in github webUI by clicking on `Raw` button.
 
 ⚠️⚠️ The `package name` application must match the `Name` value in your specfile. ⚠️⚠️
 
@@ -145,7 +145,13 @@ Click on `new app` and let's have a look on the application configuration
 #### rp-cli
 
 ```bash
-rp-cli applications add -n signal-composer-plugins-demo-n2k --pkg-name signal-composer-plugins-demo-n2k -a demo-n2k -d "A plugin for the signal-composer used for the redpesk@marine demo" --source-url https://github.com/redpesk-samples/signal-composer-plugins-demo-n2k --specfile-ext-url https://raw.githubusercontent.com/redpesk-samples/signal-composer-plugins-demo-n2k/master/conf.d/packaging/signal-composer-plugins-demo-n2k.spec -p redpesk-marine-project
+rp-cli applications add \
+    --name signal-composer-plugins-demo-n2k \
+    --pkg-name signal-composer-plugins-demo-n2k \
+    --description "A plugin for the signal-composer used for the redpesk@marine demo" \
+    --source-url https://github.com/redpesk-samples/signal-composer-plugins-demo-n2k \
+    --specfile-ext-url https://github.com/redpesk-samples/signal-composer-plugins-demo-n2k/blob/master/conf.d/packaging/signal-composer-plugins-demo-n2k.spec \
+    --project redpesk-marine-project
 ```
 
 ### Build
@@ -170,7 +176,7 @@ Once your build is successful and closed, everything is set to deploy the demo o
 
 If it is not already done, [boot]({% chapter_link quickstart.boot-a-redpesk-image %}) your board with the latest redpesk image. Then do not forget to add your project package repository list as mentioned in the [package manager section](#package-manager) of this tutorial.
 
-Refresh your package manager metadata:
+First connect to the board, for example over ssh using `ssh root@<ip_board>` command and refresh your package manager metadata:
 
 ```bash
 dnf update --refresh
@@ -212,7 +218,7 @@ can0             UP
 
 ⚠️⚠️ Only if you do not have a "real" sensor ⚠️⚠️
 
-Don't worry, the demo-n2k plugin install a CAN frame log file. 
+Don't worry, the demo-n2k plugin install a CAN frame log file.
 
 It should be located in: `/var/local/lib/afm/applications/signal-composer-binding/var/WS310.log`.
 

@@ -5,6 +5,7 @@
 The main purpose of this project is to provide a signal-composer plugin, built as a showcase of what a user can achieve thanks to the application framework binder.
 
 This project is a part of a demo which implies:
+
 - sensor which emits can frames
 - [canbus-binding](https://docs.redpesk.bzh/docs/en/master/redpesk-core/canbus/1-Architecture.html)
 - [signal-composer-binding](https://docs.redpesk.bzh/docs/en/master/redpesk-core/signal-composer/part-1/1-Architecture.html)
@@ -13,9 +14,9 @@ This project is a part of a demo which implies:
 
 The full documentation can be found under the [docs](./docs/) directory.
 
-As a quick sum up, once loded by the signal-composer, this plugin will collect, process and push data coming from the canbus-binding, to a redis time series database.
+As a quick sum up, once loaded by the signal-composer, this plugin will collect, process and push data coming from the canbus-binding, to a redis time series database.
 
-# Fast build procedure
+## Fast build procedure
 
 Just use autobuild script:
 

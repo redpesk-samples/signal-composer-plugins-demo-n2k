@@ -1,5 +1,5 @@
 ###########################################################################
-# Copyright 2015, 2016, 2017 IoT.bzh
+# Copyright 2015, 2016, 2017, 2022 IoT.bzh
 #
 # author: Romain Forlot <romain.forlot@iot.bzh>
 #
@@ -16,4 +16,5 @@
 # limitations under the License.
 ###########################################################################
 CMAKE_MINIMUM_REQUIRED(VERSION 3.8)
+project(demo-n2k)
 INCLUDE(${CMAKE_CURRENT_SOURCE_DIR}/conf.d/cmake/config.cmake)

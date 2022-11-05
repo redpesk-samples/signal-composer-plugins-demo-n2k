@@ -1,30 +1,26 @@
 # redpesk demo-n2k plugin installation
 
-This part is only useful if you plan to build and install the package from source.  
+This part is only useful if you plan to build and install the package from source.
 Do not forget that the environment where you want to run the plugin must have the **can_j1939** kernel modules loaded.
-
-## Using package manager
-
-If you aren't planing to build it from source on your host, add the redpesk [repository]({% chapter_link host-configuration-doc.building-and-running-your-service-natively %})
-to your package manager.
-
-
-Then, to install the package and all its dependencies, install the package **signal-composer-plugins-demo-n2k**
 
 ## Building from source
 
-We advise you to use the [local builder]({% chapter_link local-builder-doc.installation %}) for building the plugin source. The local builder comes with everything setup to build redpesk projects.
+We advise you to use the [local builder]({% chapter_link local-builder-doc.installation %}) for building the plugin source. The local builder comes with everything setup to build natively and cross-build redpesk projects.
 
-### Tools
+### Tools for native build
+
+Add first the [redpesk SDK native repository]({% chapter_link host-configuration-doc.setup-your-build-host %}) to your package manager.
 
 Install the building tools:
+
 - gcc
 - g++
 - make
 - cmake
 - afb-cmake-modules
 
-Install the dependencies:
+And then install the dependencies:
+
 - json-c
 - afb-binding
 - afb-libhelpers
@@ -32,13 +28,15 @@ Install the dependencies:
 - signal-composer-binding
 
 Fedora/OpenSuse:
+
 ```bash
-dnf install gcc-c++ make cmake afb-cmake-modules json-c-devel afb-binding-devel afb-libhelpers-devel afb-libcontroller-devel signal-composer-binding-devel
+sudo dnf install gcc-c++ make cmake afb-cmake-modules json-c-devel afb-binding-devel afb-libhelpers-devel afb-libcontroller-devel signal-composer-binding-devel
 ```
 
 Ubuntu:
+
 ```bash
-apt install gcc g++ make cmake afb-cmake-modules-bin libsystemd-dev libjson-c-dev afb-binding-dev afb-libhelpers-dev afb-libcontroller-dev signal-composer-binding-dev
+sudo apt install gcc g++ make cmake afb-cmake-modules libsystemd-dev libjson-c-dev afb-binding-dev afb-libhelpers-dev afb-libcontroller-dev signal-composer-binding-dev
 ```
 
 ### Build
@@ -50,7 +48,7 @@ mkdir build
 cd build
 cmake ..
 make demo-n2k -j
-make install_demo-n2k
+sudo make install_demo-n2k
 ```
 
 From then, you have set up your environment to run the demo-n2k plugin. Go to the section [usage](./4-Usage.html) to see how to use it.

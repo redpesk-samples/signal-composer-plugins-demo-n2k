@@ -1,15 +1,15 @@
 # redpesk demo-n2k plugin configuration
 
-You can find down below the configuration obtained after compiling the demo-n2k plugin and a brief descritpion of several concept introduced.
+You can find down below the configuration obtained after compiling the demo-n2k plugin and a brief description of several concept introduced.
 
 ```json
 {
   "$schema": "http://iot.bzh/download/public/schema/json/signal-composer-schema.json",
   "metadata": {
-		"uid": "signal-composer-binding",
-		"version": "10.0",
-		"api": "signal-composer",
-		"info": "Signal composer API connected to low level services",
+      "uid": "signal-composer-binding",
+      "version": "10.0",
+      "api": "signal-composer",
+      "info": "Signal composer API connected to low level services",
     "require": ["canbus", "redis"]
   },
   "plugins":
@@ -64,6 +64,7 @@ You can find down below the configuration obtained after compiling the demo-n2k 
     "require": ["canbus", "redis"]
 }
 ```
+
 The metadata if the first block of the json configuration. It gathered basic statement regarding the signal-composer. The most interesting part to notice here is the key `require` that notice the signal-composer, which *api* the plugin needs to behave correctly.
 
 ## Plugins
@@ -110,7 +111,7 @@ Here are defined from which source your entry signal are coming from. Notice her
 }
 ```
 
-This section defines the name of the output signal of the signal-composer-binding.  
+This section defines the name of the output signal of the signal-composer-binding.
 This example present a signal named *demo-n2k-speed* that is linked to the source *canbus*, invoked when the event *messages.Wind.Data.Wind.Speed* and which perform the function *pushData* implementing by the plugin *demo-n2k-plugin*.
 
 Last but not least, the signal's retention represents how long the signal-composer keep in memory one of the signal's value. The value is expressed in second and, for demo-n2k plugin, is directly link to the database push frequency. Indeed, if you want the plugin to push every 5 seconds, then you can set the signal's retention to 5 in order for the signal-composer to keep the values in memory and so processed an average on them.
