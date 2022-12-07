@@ -178,6 +178,14 @@ If it is not already done, [boot]({% chapter_link quickstart.boot-a-redpesk-imag
 
 First connect to the board, for example over ssh using `ssh root@<ip_board>` command and refresh your package manager metadata:
 
+Log on board
+
+```bash
+ssh root@<ip_board>
+```
+
+Update packages definition on board
+
 ```bash
 dnf update --refresh
 ```
@@ -202,8 +210,8 @@ can0             DOWN
 The sensor used during the demo is the Wired Wind WS310, which has a 250000 baud rate. In order to correctly set up the CAN interface, run the following commands:
 
 ```bash
-ip link set can0 type can bitrate 250000
-ip link set up can0
+sudo ip link set can0 type can bitrate 250000
+sudo ip link set up can0
 ```
 
 Then you should see the following state for your interface:
